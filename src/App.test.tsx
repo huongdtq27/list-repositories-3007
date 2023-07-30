@@ -1,9 +1,15 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+jest.mock("./pages/repositoryList/RepositoryList", () => {
+  return function MockRepositoryList() {
+    return <div data-testid="mock-repo-list">Mock Repository List</div>;
+  };
+});
+
+describe("App", () => {
+  it("Should renders the RepositoryList component", () => {
+    render(<App />);
+    expect(screen.getByTestId("mock-repo-list")).toBeInTheDocument();
+  });
 });
