@@ -4,6 +4,7 @@ import { PiForkKnifeFill, PiStarDuotone } from "react-icons/pi";
 import { gql } from "@apollo/client";
 
 export const LIMIT_RECORDS = 50;
+export const SEARCH_KEYS = ["name", "description", "url", "stargazerCount", "forkCount", "description", "projectsUrl"];
 
 export const QUERY_GET_REPOSITORIES = gql`
   query GetRepositories($limit: Int!, $loginUser: String!) {
