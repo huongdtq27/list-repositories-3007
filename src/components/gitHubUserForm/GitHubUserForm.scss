@@ -1,0 +1,20 @@
+@import "../../styles/mixins.scss";
+
+.gitHub-form {
+  display: flex;
+  align-items: center;
+  column-gap: 25px;
+  .ant-form-item:nth-child(1) {
+    flex-grow: 1;
+  }
+  .ant-form-item:nth-child(2) {
+    flex-grow: 4;
+  }
+  .ant-form-item:nth-child(3) {
+    flex-grow: 2;
+  }
+
+  .gitHub-form-input {
+    @include boxShadowColor;
+  }
+}
