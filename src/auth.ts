@@ -1,0 +1,3 @@
+export const DEFAULT_GIHUB_LOGIN_USER = "huongdtq27";
+export const DEFAULT_GITHUB_ACCESS_TOKEN =
+  "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";
