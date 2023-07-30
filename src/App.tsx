@@ -1,4 +1,4 @@
-import RepositoryList from "./pages/repositoryList/index";
+import RepositoryList from "./pages/repositoryList";
 
 function App() {
   return <RepositoryList />;

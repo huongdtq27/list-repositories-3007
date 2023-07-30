@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-jest.mock("./pages/repositoryList/RepositoryList", () => {
+jest.mock("./pages/repositoryList/index", () => {
   return function MockRepositoryList() {
     return <div data-testid="mock-repo-list">Mock Repository List</div>;
   };
