@@ -1,8 +1,8 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { MockedProvider } from "@apollo/client/testing";
-import RepositoryList from "./RepositoryList";
 import { QUERY_GET_REPOSITORIES } from "./constants";
 import { DEFAULT_GIHUB_LOGIN_USER } from "../../auth";
+import RepositoryList from "./index";
 
 // Mock data
 const NUMBER_OF_RECORDS = 5;

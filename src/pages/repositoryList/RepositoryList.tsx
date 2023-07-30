@@ -8,7 +8,7 @@ import { Repository } from "../../typings/repository";
 
 const { Search } = Input;
 
-const RepositoryList: React.FC = () => {
+export const RepositoryList: React.FC = () => {
   const [searchValue, setSearchValue] = useState("");
 
   const { loading, error, data } = useQuery(QUERY_GET_REPOSITORIES, {
@@ -56,5 +56,3 @@ const RepositoryList: React.FC = () => {
     </div>
   );
 };
-
-export default RepositoryList;
