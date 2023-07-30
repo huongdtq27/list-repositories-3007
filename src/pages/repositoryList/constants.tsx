@@ -1,6 +1,27 @@
 import { ColumnsType } from "antd/es/table";
 import { Repository } from "../../typings/repository";
 import { PiForkKnifeFill, PiStarDuotone } from "react-icons/pi";
+import { gql } from "@apollo/client";
+
+export const LIMIT_RECORDS = 50;
+
+export const QUERY_GET_REPOSITORIES = gql`
+  query GetRepositories($limit: Int!, $loginUser: String!) {
+    user(login: $loginUser) {
+      repositories(first: $limit) {
+        nodes {
+          key: id
+          description
+          forkCount
+          stargazerCount
+          projectsUrl
+          url
+          name
+        }
+      }
+    }
+  }
+`;
 
 export const REPOSITORY_COLUMNS: ColumnsType<Repository> = [
   {

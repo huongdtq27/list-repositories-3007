@@ -1,35 +1,25 @@
 import React from "react";
-import { Table } from "antd";
-import { REPOSITORY_COLUMNS } from "./constants";
+import { Alert, Table } from "antd";
+import { LIMIT_RECORDS, QUERY_GET_REPOSITORIES, REPOSITORY_COLUMNS } from "./constants";
+import { useQuery } from "@apollo/client";
+import { DEFAULT_GIHUB_LOGIN_USER } from "../../auth";
 import "./RepositoryList.scss";
 
-//Mock data
-const NUMBER_OF_RECORDS = 5;
-const mockData = {
-  user: {
-    repositories: {
-      nodes: Array.from({ length: NUMBER_OF_RECORDS }, (item, index) => ({
-        name: `Repo of Milo ${index}`,
-        key: `${index}`,
-        description: "Project is awesome",
-        forkCount: index * 5,
-        stargazerCount: index * 10,
-        url: "www.mock.com",
-        projectsUrl: "www.projectMock.com",
-      })),
-      totalCount: NUMBER_OF_RECORDS,
-    },
-  },
-};
-
 const RepositoryList: React.FC = () => {
+  const { loading, error, data } = useQuery(QUERY_GET_REPOSITORIES, {
+    variables: { limit: LIMIT_RECORDS, loginUser: DEFAULT_GIHUB_LOGIN_USER },
+  });
+
   return (
     <div className="list-repository-page">
+      {error && <Alert message={error.message} type="error" showIcon closeIcon />}
+
       <h2>GITHUB REPOSITORIES</h2>
 
       <Table
         columns={REPOSITORY_COLUMNS}
-        dataSource={mockData.user.repositories.nodes}
+        dataSource={data?.user?.repositories?.nodes}
+        loading={loading}
         className="list-repository-table"
       />
     </div>
