@@ -2,7 +2,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { MockedProvider } from "@apollo/client/testing";
 import { QUERY_GET_REPOSITORIES } from "./constants";
 import { DEFAULT_GIHUB_LOGIN_USER } from "../../auth";
-import RepositoryList from "./index";
+import { RepositoryList } from "./RepositoryList";
 
 // Mock data
 const NUMBER_OF_RECORDS = 5;
@@ -37,12 +37,13 @@ const mockProvider = [
 
 //Test
 describe("RepositoryList", () => {
-  it("Should renders the Search and Table", async () => {
+  it("Should renders the Form, Search, and Table", async () => {
     render(
       <MockedProvider mocks={mockProvider} addTypename={false}>
         <RepositoryList />
       </MockedProvider>
     );
+    expect(screen.getByText("User Infomation")).toBeInTheDocument();
     expect(screen.getByLabelText("search")).toBeInTheDocument();
     expect(screen.getByRole("table")).toBeInTheDocument();
   });
@@ -84,7 +85,7 @@ describe("RepositoryList", () => {
         <RepositoryList />
       </MockedProvider>
     );
-    const searchField = screen.getByRole("textbox");
+    const searchField = screen.getAllByRole("textbox")[1];
     fireEvent.change(searchField, { target: { value: "Repo of Milo 0" } });
     await waitFor(() => {
       expect(screen.getAllByRole("row").length).toEqual(2); // 1 header, 1 row
