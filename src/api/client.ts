@@ -1,13 +1,12 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { DEFAULT_GITHUB_ACCESS_TOKEN } from "../../auth";
 
 const httpLink = createHttpLink({
   uri: "https://api.github.com/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem("token") || DEFAULT_GITHUB_ACCESS_TOKEN;
+  const token = localStorage.getItem("token") || process.env.DEFAULT_ACCESS_TOKEN;
   return {
     headers: {
       ...headers,
