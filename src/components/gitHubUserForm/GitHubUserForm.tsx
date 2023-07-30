@@ -2,7 +2,7 @@ import { Button, Form, Input } from "antd";
 import { PiWarningFill } from "react-icons/pi";
 
 import "./GitHubUserForm.scss";
-import { DEFAULT_GIHUB_LOGIN_USER, DEFAULT_GITHUB_ACCESS_TOKEN } from "../../auth";
+import { DEFAULT_GIHUB_LOGIN_USER, DEFAULT_GITHUB_ACCESS_TOKEN } from "../../config";
 
 export const GitHubUserForm = ({ onFinishForm }: { onFinishForm: Function }) => {
   const [form] = Form.useForm();

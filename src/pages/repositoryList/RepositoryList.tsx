@@ -4,7 +4,7 @@ import { LIMIT_RECORDS, QUERY_GET_REPOSITORIES, REPOSITORY_COLUMNS, SEARCH_KEYS 
 import { useLazyQuery } from "@apollo/client";
 import { Repository } from "../../typings/repository";
 import GitHubUserForm from "../../components/gitHubUserForm";
-import { DEFAULT_GIHUB_LOGIN_USER } from "../../auth";
+import { DEFAULT_GIHUB_LOGIN_USER } from "../../config";
 
 import "./RepositoryList.scss";
 
