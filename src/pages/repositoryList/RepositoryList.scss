@@ -1,22 +1,21 @@
-@mixin boxShadowColor() {
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
+@import "../../styles/mixins.scss";
 
 .list-repository-page {
   padding: 10px 40px;
 
-  h2 {
+  h2,
+  h3 {
     color: #20b2aa;
   }
 
   .search-field {
     width: 400px;
     margin: 10px 10px 20px 0px;
-    @include boxShadowColor();
+    @include boxShadowColor;
   }
 
   .list-repository-table {
-    @include boxShadowColor();
+    @include boxShadowColor;
     tr > th {
       background-color: #79d0cc;
     }
