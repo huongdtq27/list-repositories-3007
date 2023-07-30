@@ -1,0 +1,16 @@
+.list-repository-page {
+  padding: 10px 40px;
+
+  h2 {
+    color: #20b2aa;
+  }
+
+  .list-repository-table {
+    tr > th {
+      background-color: #79d0cc;
+    }
+    .ant-table-content {
+      overflow: overlay;
+    }
+  }
+}

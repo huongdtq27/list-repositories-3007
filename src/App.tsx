@@ -1,13 +1,7 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import RepositoryList from "./pages/repositoryList/RepositoryList";
 
 function App() {
-  return (
-    <div className="App">
-      React app
-    </div>
-  );
+  return <RepositoryList />;
 }
 
 export default App;
